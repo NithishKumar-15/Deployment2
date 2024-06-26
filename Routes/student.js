@@ -12,6 +12,15 @@ studentRouter.post("/",async(req,res)=>{
     }catch(e){
         res.status(500).send({message:"Internal server error",e});
     }
+});
+
+studentRouter.get("/",async(req,res)=>{
+    try{
+        const data=await studentCollcetion.find().toArray();
+        res.send(data);
+    }catch(e){
+
+    }
 })
 
 export default studentRouter;
